@@ -6,7 +6,7 @@ class TasksController < ApplicationController
     elsif params[:completed] == 'false'
       @tasks = Task.where(["user_id = ? and completed = ?", params[:user_id], false])
     else
-      @tasks = Task.all
+      @tasks = Task.where("user_id = ?", params[:user_id])
     end
     render json:@tasks
   end
