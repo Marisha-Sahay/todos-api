@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      render json: @user
+      redirect_to "/users/#{current_user.id}"
     else
       render json: {errors: user.errors.full_messages}
     end
