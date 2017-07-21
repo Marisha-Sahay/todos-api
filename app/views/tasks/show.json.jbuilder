@@ -1,0 +1,1 @@
+json.partial! 'task.json.jbuilder', task: @task
